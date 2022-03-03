@@ -1,4 +1,4 @@
-Notificações sobre o processo
+Feature: Notificações sobre o processo
 
 Cenário: Um novo documento é anexado a um processo
 	Dado que: haja um processo "Processo A"
@@ -19,10 +19,21 @@ Cenário: Uma reunião por vídeo conferência foi marcada
 
 Cenário: O juiz deu seu veredito em um processo
 	Dado que: haja um processo "Processo C"
-	E: uma das partes se chame "Fulano"
+	E: uma das partes se chame "Andrade"
 	E: o processo envolva "Lucca"
 	E: o juiz seja "Marcelo"
-	Quando: "Marcelo" decidir que "Fulano" ganhou o processo "Processo C"
-	Então: o sistema envia uma notificação a "Fulano", "Lucca", "Marcelo"
-	E: a notificação explicita que o juiz "Marcelo" decidiu que "Fulano" ganhou o processo "Processo C"
+	Quando: "Marcelo" decidir que "Andrade" ganhou o processo "Processo C"
+	Então: o sistema envia uma notificação a "Andrade", "Lucca", "Marcelo"
+	E: a notificação explicita que o juiz "Marcelo" decidiu que "Andrade" ganhou o processo "Processo C"
 	E: a notificação informa que a decisão ocorreu as 21:00 do dia 03/01/2022
+
+Cenário: Uma parte tenta anexar um tipo de documento inválido
+	Dado que: haja um processo "Processo D"
+	E: uma das partes seja "Andrade"
+	E: seu advogado seja "Lucca"
+	E: ".feature" não seja um tipo de documento adequado
+	Quando: "Andrade" tentar anexar um documento ".feature" ao processo "Processo D"
+	Então: o sistema envia uma notificação para "Lucca"
+	E: a notificação contém a informação de que houve a tentativa de anexar um documento de formato errado ao processo "Processo D"
+	E: a notificação contém a informação de que "Andrade" tentou anexar "notificacoes.feature" ao processo "Processo D"
+	E: a notificação contém a informação de que isso ocorreu as 23:45 de 04/01/2022
