@@ -47,3 +47,19 @@ Cenário: Uma videochamada é perdida por um dos convidados
 	Então: notificar "Lucca" da ocorrência da videochamada do "Processo E"
 	E: incluir instruções de como entrar na videochama
 	E: incluir um prazo de 10 minutos para entrar na videochamada
+
+Cenário: O réu submete sua defesa
+	Dado que: haja um processo "Processo F"
+	E: o réu seja "Lucca"
+	E: o réu ainda não tenha enviado sua defesa
+	Quando: "Lucca" submeter sua defesa em "Processo F"
+	Então: o sistema deve notificar todos os envolvidos em "Processo F"
+	E: incluir na notificação o horário de envio da defesa as 6:00 de 06/01/2022
+
+Cenário: Uma vara é escolhida para o processo
+	Dado que: haja um processo "Processo G"
+	E: ainda não havia sido designado a uma vara
+	Quando: quando uma vara "Vara de Processos" receber o processo "Processo G"
+	Então: notificar todos os envolvidos no processo que o processo "Processo G" foi designado uma vara
+	E: a vara designada é a vara "Vara de Processos"
+	E: isso ocorreu as 8:30 de 07/01
