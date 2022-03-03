@@ -54,3 +54,11 @@ Cenário: O réu submete sua defesa
 	Quando: "Lucca" submeter sua defesa em "Processo F"
 	Então: o sistema deve notificar todos os envolvidos em "Processo F"
 	E: incluir na notificação o horário de envio da defesa as 6:00 de 06/01/2022
+
+Cenário: Uma vara é escolhida para o processo
+	Dado que: haja um processo "Processo G"
+	E: ainda não havia sido designado a uma vara
+	Quando: quando uma vara "Vara de Processos" receber o processo "Processo G"
+	Então: notificar todos os envolvidos no processo que o processo "Processo G" foi designado uma vara
+	E: a vara designada é a vara "Vara de Processos"
+	E: isso ocorreu as 8:30 de 07/01/2022
