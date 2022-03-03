@@ -46,3 +46,11 @@ Cenário: Uma videochamada é perdida por um dos convidados
 	E: "Lucca" não estiver em presença
 	Então: notificar "Lucca" da ocorrência da videochamada do "Processo E"
 	E: incluir instruções de como entrar na videochama
+
+Cenário: O réu submete sua defesa
+	Dado que: haja um processo "Processo F"
+	E: o réu seja "Lucca"
+	E: o réu ainda não tenha enviado sua defesa
+	Quando: "Lucca" submeter sua defesa em "Processo F"
+	Então: o sistema deve notificar todos os envolvidos em "Processo F"
+	E: incluir na notificação o horário de envio da defesa as 6:00 de 06/01/2022
