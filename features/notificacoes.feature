@@ -46,3 +46,4 @@ Cenário: Uma videochamada é perdida por um dos convidados
 	E: "Lucca" não estiver em presença
 	Então: notificar "Lucca" da ocorrência da videochamada do "Processo E"
 	E: incluir instruções de como entrar na videochama
+	E: incluir um prazo de 10 minutos para entrar na videochamada
