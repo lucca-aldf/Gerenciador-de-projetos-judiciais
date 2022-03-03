@@ -37,3 +37,12 @@ Cenário: Uma parte tenta anexar um tipo de documento inválido
 	E: a notificação contém a informação de que houve a tentativa de anexar um documento de formato errado ao processo "Processo D"
 	E: a notificação contém a informação de que "Andrade" tentou anexar "notificacoes.feature" ao processo "Processo D"
 	E: a notificação contém a informação de que isso ocorreu as 23:45 de 04/01/2022
+
+Cenário: Uma videochamada é perdida por um dos convidados
+	Dado que: haja um processo "Processo E"
+	E: o processo envolva "Lucca"
+	E: há uma videochamada marcada para 00:00 de 05/01/2022
+	Quando: se passarem 5 minutos após o ínicio da videochamada
+	E: "Lucca" não estiver em presença
+	Então: notificar "Lucca" da ocorrência da videochamada do "Processo E"
+	E: incluir instruções de como entrar na videochama
